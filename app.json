@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "workbuds",
+    "slug": "workbuds",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "workbuds"
+}
