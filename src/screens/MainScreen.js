@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import Paragraph from '../components/Paragraph'
 import Button from '../components/Button'
 
-export default function Dashboard({ navigation }) {
+export default function MainScreen({ navigation }) {
   return (
     <Background>
       <Logo />

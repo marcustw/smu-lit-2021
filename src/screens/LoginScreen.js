@@ -25,7 +25,7 @@ export default function LoginScreen({ navigation }) {
     }
     navigation.reset({
       index: 0,
-      routes: [{ name: 'Dashboard' }],
+      routes: [{ name: 'MainScreen' }],
     })
   }
 
@@ -33,7 +33,7 @@ export default function LoginScreen({ navigation }) {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Welcome back.</Header>
+      {/* <Header>Welcome back.</Header> */}
       <TextInput
         label="Email"
         returnKeyType="next"
@@ -65,12 +65,6 @@ export default function LoginScreen({ navigation }) {
       <Button mode="contained" onPress={onLoginPressed}>
         Login
       </Button>
-      <View style={styles.row}>
-        <Text>Don’t have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
-          <Text style={styles.link}>Sign up</Text>
-        </TouchableOpacity>
-      </View>
     </Background>
   )
 }
