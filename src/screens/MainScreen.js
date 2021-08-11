@@ -5,6 +5,7 @@ import TopBar from './../components/main/TopBar'
 import axios from 'axios'
 import BottomBar from './../components/main/BottomBar'
 import Swipes from './../components/main/Swipes'
+import CircularLoading from '../components/common/CircularLoading'
 
 export default function MainScreen({ navigation }) {
   const [users, setUsers] = useState([])
@@ -19,15 +20,14 @@ export default function MainScreen({ navigation }) {
       setUsers(data.results)
       // console.log(data.results)
     } catch (error) {
-      console.log(error)
-      // Alert.alert('Error getting users', '', [
-      //   { text: 'Retry', onPress: () => fetchUsers() },
-      // ])
+      reject()
     }
   }
 
   useEffect(() => {
-    fetchUsers()
+    fetchUsers().catch(function () {
+      console.log('Error fetching user')
+    })
   }, [])
 
   function handleLike() {
@@ -52,25 +52,29 @@ export default function MainScreen({ navigation }) {
     swipesRef.current.openRight()
   }
 
+  function mainScreen() {
+    if (users && users.length >= 1) {
+      return users.map(
+        (u, i) =>
+          currentIndex === i && (
+            <Swipes
+              key={i}
+              ref={swipesRef}
+              currentIndex={currentIndex}
+              users={users}
+              handleLike={handleLike}
+              handlePass={handlePass}
+            ></Swipes>
+          )
+      )
+    }
+    return <CircularLoading />
+  }
+
   return (
     <View style={styles.container}>
       <TopBar />
-      <View style={styles.swipes}>
-        {users.length > 1 &&
-          users.map(
-            (u, i) =>
-              currentIndex === i && (
-                <Swipes
-                  key={i}
-                  ref={swipesRef}
-                  currentIndex={currentIndex}
-                  users={users}
-                  handleLike={handleLike}
-                  handlePass={handlePass}
-                ></Swipes>
-              )
-          )}
-      </View>
+      <View style={styles.swipes}>{mainScreen()}</View>
       <BottomBar
         handleLikePress={handleLikePress}
         handlePassPress={handlePassPress}
