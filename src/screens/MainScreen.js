@@ -1,68 +1,3 @@
-<<<<<<< HEAD
-<<<<<<<< HEAD:src/screens/MainScreen.js
-import React from 'react'
-import Background from '../components/Background'
-import Logo from '../components/Logo'
-import Header from '../components/Header'
-import Paragraph from '../components/Paragraph'
-import Button from '../components/Button'
-
-export default function MainScreen({ navigation }) {
-  return (
-    <Background>
-      <Logo />
-      <Header>Let’s start</Header>
-      <Paragraph>
-        Your amazing app starts here. Open you favorite code editor and start
-        editing this project.
-      </Paragraph>
-      <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }
-      >
-        Logout
-      </Button>
-    </Background>
-  )
-}
-========
-import React from 'react'
-import Background from '../components/login/Background'
-import Logo from '../components/login/Logo'
-import Header from '../components/login/Header'
-import Paragraph from '../components/login/Paragraph'
-import Button from '../components/login/Button'
-
-export default function Dashboard({ navigation }) {
-  return (
-    <Background>
-      <Logo />
-      <Header>Let’s start</Header>
-      <Paragraph>
-        Your amazing app starts here. Open you favorite code editor and start
-        editing this project.
-      </Paragraph>
-      <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.reset({
-            index: 0,
-            routes: [{ name: 'StartScreen' }],
-          })
-        }
-      >
-        Logout
-      </Button>
-    </Background>
-  )
-}
->>>>>>>> 5d00f162f9a60b4c99a9982d8daed0440dc65a1e:src/screens/Dashboard.js
-=======
 import React, { useState, useEffect, useRef } from 'react'
 import { StyleSheet, View, Alert } from 'react-native'
 import Constants from 'expo-constants'
@@ -78,13 +13,19 @@ export default function MainScreen({ navigation }) {
 
   async function fetchUsers() {
     try {
-      const { data } = await axios.get('https://randomuser.me/api/?results=5000')
+      const { data } = await axios.get(
+        'https://randomuser.me/api/?results=5000'
+      )
       setUsers(data.results)
       console.log(data.results)
-      Alert.alert('Success getting users', '', [{ text: 'Retry', onPress: () => fetchUsers() }])
+      Alert.alert('Success getting users', '', [
+        { text: 'Retry', onPress: () => fetchUsers() },
+      ])
     } catch (error) {
       console.log(error)
-      Alert.alert('Error getting users', '', [{ text: 'Retry', onPress: () => fetchUsers() }])
+      Alert.alert('Error getting users', '', [
+        { text: 'Retry', onPress: () => fetchUsers() },
+      ])
     }
   }
 
@@ -133,7 +74,10 @@ export default function MainScreen({ navigation }) {
               )
           )}
       </View>
-      <BottomBar handleLikePress={handleLikePress} handlePassPress={handlePassPress} />
+      <BottomBar
+        handleLikePress={handleLikePress}
+        handlePassPress={handlePassPress}
+      />
     </View>
   )
 }
@@ -157,4 +101,3 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
 })
->>>>>>> 5d00f162f9a60b4c99a9982d8daed0440dc65a1e
