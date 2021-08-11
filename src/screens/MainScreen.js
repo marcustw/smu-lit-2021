@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { StyleSheet, View, Alert } from 'react-native'
 import Constants from 'expo-constants'
-import TopBar from './components/main/TopBar'
+import TopBar from './../components/main/TopBar'
 import axios from 'axios'
-import BottomBar from './components/main/BottomBar'
-import Swipes from './components/main/Swipes'
+import BottomBar from './../components/main/BottomBar'
+import Swipes from './../components/main/Swipes'
 
 export default function MainScreen({ navigation }) {
   const [users, setUsers] = useState([])
