@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react'
 import { StyleSheet, View, Alert } from 'react-native'
 import Constants from 'expo-constants'
@@ -92,3 +93,68 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
 })
+=======
+<<<<<<<< HEAD:src/screens/Dashboard.js
+import React from 'react'
+import Background from '../components/login/Background'
+import Logo from '../components/login/Logo'
+import Header from '../components/login/Header'
+import Paragraph from '../components/login/Paragraph'
+import Button from '../components/login/Button'
+
+export default function Dashboard({ navigation }) {
+  return (
+    <Background>
+      <Logo />
+      <Header>Let’s start</Header>
+      <Paragraph>
+        Your amazing app starts here. Open you favorite code editor and start
+        editing this project.
+      </Paragraph>
+      <Button
+        mode="outlined"
+        onPress={() =>
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'StartScreen' }],
+          })
+        }
+      >
+        Logout
+      </Button>
+    </Background>
+  )
+}
+========
+import React from 'react'
+import Background from '../components/Background'
+import Logo from '../components/Logo'
+import Header from '../components/Header'
+import Paragraph from '../components/Paragraph'
+import Button from '../components/Button'
+
+export default function MainScreen({ navigation }) {
+  return (
+    <Background>
+      <Logo />
+      <Header>Let’s start</Header>
+      <Paragraph>
+        Your amazing app starts here. Open you favorite code editor and start
+        editing this project.
+      </Paragraph>
+      <Button
+        mode="outlined"
+        onPress={() =>
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'StartScreen' }],
+          })
+        }
+      >
+        Logout
+      </Button>
+    </Background>
+  )
+}
+>>>>>>>> 95581e506b80859bc05566545fb0267c123fced8:src/screens/MainScreen.js
+>>>>>>> 95581e506b80859bc05566545fb0267c123fced8
