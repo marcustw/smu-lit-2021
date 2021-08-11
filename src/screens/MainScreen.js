@@ -18,14 +18,11 @@ export default function MainScreen({ navigation }) {
       )
       setUsers(data.results)
       console.log(data.results)
-      Alert.alert('Success getting users', '', [
-        { text: 'Retry', onPress: () => fetchUsers() },
-      ])
     } catch (error) {
       console.log(error)
-      Alert.alert('Error getting users', '', [
-        { text: 'Retry', onPress: () => fetchUsers() },
-      ])
+      // Alert.alert('Error getting users', '', [
+      //   { text: 'Retry', onPress: () => fetchUsers() },
+      // ])
     }
   }
 
