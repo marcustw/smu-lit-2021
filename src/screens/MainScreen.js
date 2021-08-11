@@ -17,7 +17,7 @@ export default function MainScreen({ navigation }) {
         'https://randomuser.me/api/?results=5000'
       )
       setUsers(data.results)
-      console.log(data.results)
+      // console.log(data.results)
     } catch (error) {
       console.log(error)
       // Alert.alert('Error getting users', '', [
