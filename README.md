@@ -77,6 +77,7 @@ yarn install
  // or
  yarn ios // yarn android
 ```
+
 ## Support
 
 In case of any questions or problems, please contact me at:
