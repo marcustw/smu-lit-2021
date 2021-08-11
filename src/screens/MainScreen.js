@@ -75,7 +75,7 @@ export default function MainScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <TopBar />
+      <TopBar/>
       <View style={styles.swipes}>{mainScreen()}</View>
       <BottomBar
         handleLikePress={handleLikePress}
