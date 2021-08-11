@@ -20,7 +20,9 @@ export default function MainScreen({ navigation }) {
       setUsers(data.results)
       // console.log(data.results)
     } catch (error) {
-      reject()
+      Alert.alert('Failed getting users', '', [
+        { text: 'Ok', onPress: () => reject() },
+      ])
     }
   }
 
