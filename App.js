@@ -9,6 +9,7 @@ import {
   RegisterScreen,
   ResetPasswordScreen,
   Dashboard,
+  MainScreen,
 } from './src/screens'
 
 const Stack = createStackNavigator()
@@ -18,7 +19,7 @@ export default function App() {
     <Provider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="StartScreen"
+          initialRouteName="LoginScreen"
           screenOptions={{
             headerShown: false,
           }}
@@ -34,5 +35,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
+
+    
   )
 }
