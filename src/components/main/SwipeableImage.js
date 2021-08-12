@@ -18,12 +18,18 @@ export default function SwipeableImage({ user, willLike, willPass }) {
       )}
       <View style={styles.textContainer}>
         <View style={styles.textRow}>
-          <Text style={[styles.textPrimary, styles.textShadow]}>{user.name.first}</Text>
-          <Text style={[styles.textSecondary, styles.textShadow]}>{user.dob.age}</Text>
+          <Text style={[styles.textPrimary, styles.textShadow]}>
+            {user.name.first}
+          </Text>
+          <Text style={[styles.textSecondary, styles.textShadow]}>
+            {user.dob.age}
+          </Text>
         </View>
         <View style={styles.textRow}>
           <FontAwesome name="map-marker" size={20} color="white"></FontAwesome>
-          <Text style={[styles.textSecondary, styles.textShadow]}>{user.location.city}</Text>
+          <Text style={[styles.textSecondary, styles.textShadow]}>
+            Singapore
+          </Text>
         </View>
       </View>
     </View>
