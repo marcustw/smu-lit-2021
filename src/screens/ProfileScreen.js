@@ -74,7 +74,7 @@ export default function ProfileScreen({ navigation }) {
     AsyncStorage.setItem('linkedIn', typedLinkedIn)
 
   useEffect(() => {
-    setEnabledValue(false)
+    setEnabledValue(enabledValue)
     setEnabledTextInputStyleValue(styles.textInputStyle)
     displayName()
     displayAge()
@@ -107,7 +107,7 @@ export default function ProfileScreen({ navigation }) {
             returnKeyType="next"
             autoCapitalize="none"
             textContentType="username"
-            keyboardType="alphanumeric"
+            keyboardType="ascii-capable-number-pad"
           />
         </View>
         <View style={styles.textRow}>
@@ -149,7 +149,7 @@ export default function ProfileScreen({ navigation }) {
             returnKeyType="next"
             autoCapitalize="none"
             textContentType="username"
-            keyboardType="alphanumeric"
+            keyboardType="ascii-capable-number-pad"
           />
         </View>
         <View style={styles.textRow}>
@@ -170,7 +170,7 @@ export default function ProfileScreen({ navigation }) {
             returnKeyType="next"
             autoCapitalize="none"
             textContentType="username"
-            keyboardType="alphanumeric"
+            keyboardType="ascii-capable-number-pad"
           />
         </View>
 
@@ -192,7 +192,7 @@ export default function ProfileScreen({ navigation }) {
             returnKeyType="next"
             autoCapitalize="none"
             textContentType="username"
-            keyboardType="alphanumeric"
+            keyboardType="ascii-capable-number-pad"
           />
         </View>
       </View>
@@ -200,7 +200,7 @@ export default function ProfileScreen({ navigation }) {
         mode="contained"
         style={styles.editButton}
         onPress={() => {
-          setEnabledValue(!enabledValue)
+          setEnabledValue(false)
           const styleToPut =
             enabledTextInputStyle == styles.textInputStyle
               ? styles.textInputStyleEnabled
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
   textRow: {
     width: '70%',
     height: 25,
-    marginVertical: 20,
+    marginVertical: 25,
     flexDirection: 'row',
     alignItems: 'center',
   },

@@ -36,6 +36,34 @@ const Messages = [
     messageTime: '2 hours ago',
     messageText: 'Actually can you help me print "Hello World"?',
   },
+  {
+    id: '4',
+    userName: 'Ray',
+    userImg: require('../../assets/users/user-2.jpg'),
+    messageTime: '4 hours ago',
+    messageText: 'Welcome to our company!',
+  },
+  {
+    id: '6',
+    userName: 'May',
+    userImg: require('../../assets/users/user-6.jpg'),
+    messageTime: '7 hours ago',
+    messageText: 'You look young, how old are you?',
+  },
+  {
+    id: '7',
+    userName: 'Diana',
+    userImg: require('../../assets/users/user-7.jpg'),
+    messageTime: '12 hours ago',
+    messageText: 'We have to thank organisers of SMU-Lit!',
+  },
+  {
+    id: '8',
+    userName: 'Christine',
+    userImg: require('../../assets/users/user-8.jpg'),
+    messageTime: '16 hours ago',
+    messageText: 'Thank you to the donors too!',
+  },
 ]
 
 const MessagesTab = ({ navigation, onPressFunc }) => {

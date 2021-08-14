@@ -3,9 +3,16 @@ import { View, Image, StyleSheet, Text } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
 export default function SwipeableImage({ user, willLike, willPass }) {
+  const name = user.name
   return (
     <View>
-      <Image source={{ uri: user.picture.large }} style={styles.photo} />
+      {/* <Image source={{ uri: user.picture.large }} style={styles.photo} /> */}
+      <Image
+        source={{
+          uri: user.picture,
+        }}
+        style={styles.photo}
+      />
       {willLike && (
         <View style={styles.likeBox}>
           <Text style={{ ...styles.textPrimary, color: '#64EDCC' }}>LIKE</Text>
@@ -18,23 +25,21 @@ export default function SwipeableImage({ user, willLike, willPass }) {
       )}
       <View style={styles.textContainer}>
         <View style={styles.textRow}>
-          <Text style={[styles.textPrimary, styles.textShadow]}>
-            {user.name.first}
-          </Text>
+          <Text style={[styles.textPrimary, styles.textShadow]}>{name}</Text>
           <Text style={[styles.textSecondary, styles.textShadow]}>
-            {user.dob.age}
+            {user.age}
           </Text>
         </View>
         <View style={styles.textRow}>
           <FontAwesome name="map-marker" size={20} color="white"></FontAwesome>
           <Text style={[styles.textSecondary, styles.textShadow]}>
-            Tech department
+            {user.dept}
           </Text>
         </View>
         <View style={styles.textRow}>
           <FontAwesome name="book" size={20} color="white"></FontAwesome>
           <Text style={[styles.textSecondary, styles.textShadow]}>
-            Interest/hobbies
+            {user.hobbies}
           </Text>
         </View>
         <View style={styles.textRow}>
@@ -44,7 +49,7 @@ export default function SwipeableImage({ user, willLike, willPass }) {
             color="white"
           ></FontAwesome>
           <Text style={[styles.textSecondarySmall, styles.textShadow]}>
-            https://www.linkedin.com/in/{user.name.first}/
+            https://www.linkedin.com/in/{name}/
           </Text>
         </View>
       </View>
