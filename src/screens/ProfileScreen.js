@@ -16,11 +16,19 @@ export default function ProfileScreen({ navigation }) {
   const [enabledTextInputStyle, setEnabledTextInputStyleValue] = useState(styles.textInputStyle)
   const [name, setName] = useState("")
   const displayName = async () => {
+    // try {
+    //   let nameValue = AsyncStorage.getItem('name');
+    //   //if (nameValue) nameValue = "name";
+    //   setName(nameValue);
+    // } catch (error) {
+    //     alert(error);
+    // }
+
     try {
-      let nameValue = AsyncStorage.getItem('name');
-      if (nameValue) nameValue = "name";
+      let nameValue = await AsyncStorage.getItem('name');
+      nameValue = nameValue == null? "name" : nameValue;
       setName(nameValue);
-    } catch (error) {
+    } catch(error) {
         alert(error);
     }
   }
@@ -28,8 +36,8 @@ export default function ProfileScreen({ navigation }) {
   const [age, setAge] = useState("")
   const displayAge = async () => {
     try {
-      let ageValue = AsyncStorage.getItem('age');
-      if (ageValue) ageValue = "age";
+      let ageValue = await AsyncStorage.getItem('age');
+      ageValue = ageValue == null? "age" : ageValue;
       setAge(ageValue);
     } catch (error) {
         alert(error);
@@ -39,8 +47,8 @@ export default function ProfileScreen({ navigation }) {
   const [department, setDepartment] = useState("")
   const displayDepartment = async () => {
     try {
-      let departmentValue = AsyncStorage.getItem('department');
-      if (departmentValue) departmentValue = "department";
+      let departmentValue = await AsyncStorage.getItem('department');
+      departmentValue = departmentValue == null? "department" : departmentValue;
       setDepartment(departmentValue);
     } catch (error) {
         alert(error);
@@ -50,8 +58,8 @@ export default function ProfileScreen({ navigation }) {
   const [hobby, setHobby] = useState("")
   const displayHobby = async () => {
     try {
-      let hobbyValue = AsyncStorage.getItem('hobby');
-      if (hobbyValue) hobbyValue = "hobby";
+      let hobbyValue = await AsyncStorage.getItem('hobby');
+      hobbyValue = hobbyValue == null? "hobby" : hobbyValue;
       setHobby(hobbyValue);
     } catch (error) {
         alert(error);
@@ -61,14 +69,17 @@ export default function ProfileScreen({ navigation }) {
   const [linkedIn, setLinkedIn] = useState("")
   const displayLinkedIn = async () => {
     try {
-      let linkedInValue = AsyncStorage.getItem('linkedIn');
-      if (linkedInValue) linkedInValue = "LinkedIn";
+      let linkedInValue = await AsyncStorage.getItem('linkedIn');
+      linkedInValue = linkedInValue == null? "LinkedIn" : linkedInValue;
       setLinkedIn(linkedInValue);
     } catch (error) {
         alert(error);
     }
   }
   const saveLinkedIn = (typedLinkedIn) => AsyncStorage.setItem('linkedIn', typedLinkedIn);
+
+
+
   useEffect(() => {
     // write your code here, it's like componentWillMount
     setEnabledValue(false);
@@ -99,7 +110,6 @@ export default function ProfileScreen({ navigation }) {
             label="Name"
             returnKeyType="next"
             autoCapitalize="none"
-            autoCompleteType="email"
             textContentType="username"
             keyboardType="alphanumeric"
           />
@@ -117,9 +127,8 @@ export default function ProfileScreen({ navigation }) {
             label="Age"
             returnKeyType="next"
             autoCapitalize="none"
-            autoCompleteType="email"
             textContentType="username"
-            keyboardType="alphanumeric"
+            keyboardType="numeric"
           />
         </View>
          <View style={styles.textRow}>
@@ -135,7 +144,6 @@ export default function ProfileScreen({ navigation }) {
             label="Department"
             returnKeyType="next"
             autoCapitalize="none"
-            autoCompleteType="email"
             textContentType="username"
             keyboardType="alphanumeric"
           />
@@ -153,7 +161,6 @@ export default function ProfileScreen({ navigation }) {
             label="Interests/Hobbies"
             returnKeyType="next"
             autoCapitalize="none"
-            autoCompleteType="email"
             textContentType="username"
             keyboardType="alphanumeric"
           />
@@ -172,7 +179,6 @@ export default function ProfileScreen({ navigation }) {
             label="Linked-In profile"
             returnKeyType="next"
             autoCapitalize="none"
-            autoCompleteType="email"
             textContentType="username"
             keyboardType="alphanumeric"
           />
@@ -196,10 +202,14 @@ const styles = StyleSheet.create({
     margin:"10px"
   },
   editButton: {
+      position: 'absolute',
       width: '50%',
-      marginVertical: 12,
+      bottom: 10
   }, 
   textRow: {
+    width: '100%',
+    height: '12%',
+    marginVertical: 12,
     flexDirection: 'row',
     alignItems: 'center',
   },
