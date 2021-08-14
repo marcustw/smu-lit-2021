@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { StyleSheet, View, ScrollView } from 'react-native'
+import Constants from 'expo-constants'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Background from '../components/login/Background'
 import Logo from '../components/login/Logo'
@@ -8,7 +9,6 @@ import Button from '../components/login/Button'
 import Paragraph from '../components/login/Paragraph'
 import TextInput from '../components/login/TextInput'
 import { FontAwesome } from '@expo/vector-icons'
-import { useEffect } from 'react'
 
 export default function ProfileScreen({ navigation }) {
   const [enabledValue, setEnabledValue] = useState(false)
@@ -93,7 +93,8 @@ export default function ProfileScreen({ navigation }) {
   }, [])
 
   return (
-    <Background>
+    // <Background>
+    <View style={styles.container}>
       <Header> Profile </Header>
       <View style={styles.background}>
         <View style={styles.textRow}>
@@ -199,10 +200,15 @@ export default function ProfileScreen({ navigation }) {
         {' '}
         Edit{' '}
       </Button>
-    </Background>
+    </View>
   )
 }
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    alignItems: 'center',
+  },
   inputBox: {
     margin: '10px',
   },
@@ -212,9 +218,9 @@ const styles = StyleSheet.create({
     bottom: 10,
   },
   textRow: {
-    width: '100%',
-    height: '12%',
-    marginVertical: 12,
+    width: '70%',
+    height: 25,
+    marginVertical: 20,
     flexDirection: 'row',
     alignItems: 'center',
   },

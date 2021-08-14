@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { View, ScrollView, Text, Button, StyleSheet } from 'react-native'
+import {
+  View,
+  ScrollView,
+  Text,
+  Button,
+  StyleSheet,
+  Pressable,
+  Image,
+} from 'react-native'
 import { Bubble, GiftedChat, Send } from 'react-native-gifted-chat'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import BackButton from './../login/BackButton'
 
-const ChatTab = ({ route }) => {
+const ChatTab = ({ chatIndex, onBackFunc }) => {
   const allMessages = [
     // first
     [
@@ -97,12 +106,10 @@ const ChatTab = ({ route }) => {
     ],
   ]
 
-  const [messages, setMessages] = useState(
-    allMessages[route.params.chatIndex - 1]
-  )
+  const [messages, setMessages] = useState(allMessages[chatIndex])
 
   useEffect(() => {
-    setMessages(allMessages[route.params.chatIndex - 1])
+    setMessages(allMessages[chatIndex])
   }, [])
 
   const onSend = useCallback((messages = []) => {
@@ -149,18 +156,26 @@ const ChatTab = ({ route }) => {
   }
 
   return (
-    <GiftedChat
-      messages={messages}
-      onSend={(messages) => onSend(messages)}
-      user={{
-        _id: 1,
-      }}
-      renderBubble={renderBubble}
-      alwaysShowSend
-      renderSend={renderSend}
-      scrollToBottom
-      scrollToBottomComponent={scrollToBottomComponent}
-    />
+    <View style={styles.container}>
+      <Pressable onPress={onBackFunc}>
+        <Image
+          style={styles.image}
+          source={require('../../assets/arrow_back.png')}
+        />
+      </Pressable>
+      <GiftedChat
+        messages={messages}
+        onSend={(messages) => onSend(messages)}
+        user={{
+          _id: 1,
+        }}
+        renderBubble={renderBubble}
+        alwaysShowSend
+        renderSend={renderSend}
+        scrollToBottom
+        scrollToBottomComponent={scrollToBottomComponent}
+      />
+    </View>
   )
 }
 
@@ -169,7 +184,18 @@ export default ChatTab
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  actionBar: {
+    backgroundColor: '#cacaca',
+    height: 41,
+    width: '100%',
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  image: {
+    width: 24,
+    height: 24,
+    marginLeft: 10,
+    marginTop: 10,
   },
 })
