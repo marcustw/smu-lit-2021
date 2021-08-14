@@ -17,14 +17,6 @@ export default function ProfileScreen({ navigation }) {
   )
   const [name, setName] = useState('')
   const displayName = async () => {
-    // try {
-    //   let nameValue = AsyncStorage.getItem('name');
-    //   //if (nameValue) nameValue = "name";
-    //   setName(nameValue);
-    // } catch (error) {
-    //     alert(error);
-    // }
-
     try {
       let nameValue = await AsyncStorage.getItem('name')
       nameValue = nameValue == null ? 'name' : nameValue
@@ -82,7 +74,6 @@ export default function ProfileScreen({ navigation }) {
     AsyncStorage.setItem('linkedIn', typedLinkedIn)
 
   useEffect(() => {
-    // write your code here, it's like componentWillMount
     setEnabledValue(false)
     setEnabledTextInputStyleValue(styles.textInputStyle)
     displayName()
@@ -96,9 +87,13 @@ export default function ProfileScreen({ navigation }) {
     // <Background>
     <View style={styles.container}>
       <Header> Profile </Header>
-      <View style={styles.background}>
+      <View>
         <View style={styles.textRow}>
-          <FontAwesome name="child" size={30}></FontAwesome>
+          <FontAwesome
+            name="child"
+            size={30}
+            style={styles.iconStyle}
+          ></FontAwesome>
           <TextInput
             valueString={name}
             onChangeText={(text) => {
@@ -116,7 +111,11 @@ export default function ProfileScreen({ navigation }) {
           />
         </View>
         <View style={styles.textRow}>
-          <FontAwesome name="birthday-cake" size={30}></FontAwesome>
+          <FontAwesome
+            name="birthday-cake"
+            size={30}
+            style={styles.iconStyle}
+          ></FontAwesome>
           <TextInput
             valueString={age}
             onChangeText={(text) => {
@@ -133,7 +132,11 @@ export default function ProfileScreen({ navigation }) {
           />
         </View>
         <View style={styles.textRow}>
-          <FontAwesome name="suitcase" size={30}></FontAwesome>
+          <FontAwesome
+            name="suitcase"
+            size={30}
+            style={styles.iconStyle}
+          ></FontAwesome>
           <TextInput
             valueString={department}
             onChangeText={(text) => {
@@ -150,7 +153,11 @@ export default function ProfileScreen({ navigation }) {
           />
         </View>
         <View style={styles.textRow}>
-          <FontAwesome name="book" size={30}></FontAwesome>
+          <FontAwesome
+            name="book"
+            size={30}
+            style={styles.iconStyle}
+          ></FontAwesome>
           <TextInput
             valueString={hobby}
             onChangeText={(text) => {
@@ -168,7 +175,11 @@ export default function ProfileScreen({ navigation }) {
         </View>
 
         <View style={styles.textRow}>
-          <FontAwesome name="linkedin-square" size={30}></FontAwesome>
+          <FontAwesome
+            name="linkedin-square"
+            size={30}
+            style={styles.iconStyle}
+          ></FontAwesome>
           <TextInput
             valueString={linkedIn}
             onChangeText={(text) => {
@@ -208,6 +219,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: Constants.statusBarHeight,
     alignItems: 'center',
+    backgroundColor: '#f8f4f4',
   },
   inputBox: {
     margin: '10px',
@@ -231,5 +243,8 @@ const styles = StyleSheet.create({
   textInputStyleEnabled: {
     backgroundColor: 'white',
     marginLeft: 5,
+  },
+  iconStyle: {
+    width: 30,
   },
 })

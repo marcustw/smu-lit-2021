@@ -20,7 +20,7 @@ const Messages = [
     userName: 'Jenny Doe',
     userImg: require('../../assets/users/user-3.jpg'),
     messageTime: '4 mins ago',
-    messageText: 'Hi Test, has work been fine for you?',
+    messageText: 'Hi there, has work been fine for you?',
   },
   {
     id: '2',
@@ -40,7 +40,7 @@ const Messages = [
 
 const MessagesTab = ({ navigation, onPressFunc }) => {
   return (
-    <Container>
+    <Container style={styles.container}>
       <FlatList
         data={Messages}
         keyExtractor={(item) => item.id}
@@ -72,5 +72,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#f8f4f4',
   },
 })

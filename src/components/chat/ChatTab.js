@@ -19,7 +19,7 @@ const ChatTab = ({ chatIndex, onBackFunc }) => {
     [
       {
         _id: 2,
-        text: 'Hi Test, has work been fine for you?',
+        text: 'Hi there, has work been fine for you?',
         createdAt: new Date(),
         user: {
           _id: 2,

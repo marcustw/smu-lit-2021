@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 8,
+    backgroundColor: '#f8f4f4',
   },
   swipes: {
     flex: 1,
