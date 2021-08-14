@@ -28,7 +28,23 @@ export default function SwipeableImage({ user, willLike, willPass }) {
         <View style={styles.textRow}>
           <FontAwesome name="map-marker" size={20} color="white"></FontAwesome>
           <Text style={[styles.textSecondary, styles.textShadow]}>
-            Singapore
+            Tech department
+          </Text>
+        </View>
+        <View style={styles.textRow}>
+          <FontAwesome name="book" size={20} color="white"></FontAwesome>
+          <Text style={[styles.textSecondary, styles.textShadow]}>
+            Interest/hobbies
+          </Text>
+        </View>
+        <View style={styles.textRow}>
+          <FontAwesome
+            name="linkedin-square"
+            size={20}
+            color="white"
+          ></FontAwesome>
+          <Text style={[styles.textSecondarySmall, styles.textShadow]}>
+            https://www.linkedin.com/in/{user.name.first}/
           </Text>
         </View>
       </View>
@@ -81,6 +97,11 @@ const styles = StyleSheet.create({
     color: 'white',
     marginLeft: 10,
     fontSize: 25,
+  },
+  textSecondarySmall: {
+    color: 'white',
+    marginLeft: 10,
+    fontSize: 15,
   },
   textShadow: {
     textShadowColor: 'rgba(0, 0, 0, 0.80)',

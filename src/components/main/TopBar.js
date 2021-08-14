@@ -4,7 +4,7 @@ import { FontAwesome5, FontAwesome } from '@expo/vector-icons'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import SwipeScreen from './../../screens/SwipeScreen'
 import MessagesScreen from './../../screens/MessagesScreen'
-import LoginScreen from './../../screens/LoginScreen'
+import ProfileScreen from './../../screens/ProfileScreen'
 
 const TopBarTabs = createMaterialTopTabNavigator()
 
@@ -23,7 +23,14 @@ export default function TopBar() {
             iconName = 'comments'
           }
           if (route.name === 'ProfileScreen') {
-            iconName = 'user'
+            return (
+              <FontAwesome5
+                name="user"
+                size={22}
+                color={focused ? '#F06795' : '#5c5c5c'}
+                onPress={() => navigation.navigate('ProfileScreen')}
+              />
+            )
           }
           return (
             <FontAwesome5
@@ -38,7 +45,7 @@ export default function TopBar() {
     >
       <TopBarTabs.Screen name="SwipeScreen" component={SwipeScreen} />
       <TopBarTabs.Screen name="MessagesScreen" component={MessagesScreen} />
-      {/* <TopBar.Screen name="ProfileScreen" component={LoginScreen} /> */}
+      <TopBarTabs.Screen name="ProfileScreen" component={ProfileScreen} />
     </TopBarTabs.Navigator>
   )
 }
